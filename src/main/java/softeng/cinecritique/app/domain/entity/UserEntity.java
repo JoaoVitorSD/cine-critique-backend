@@ -1,4 +1,4 @@
-package softeng.cinecritique.app.entity;
+package softeng.cinecritique.app.domain.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

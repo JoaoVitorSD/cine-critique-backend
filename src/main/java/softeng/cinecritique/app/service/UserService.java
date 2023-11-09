@@ -4,9 +4,9 @@ package softeng.cinecritique.app.service;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-import softeng.cinecritique.app.dto.request.UserDTORequest;
-import softeng.cinecritique.app.dto.response.UserDTOResponse;
-import softeng.cinecritique.app.entity.UserEntity;
+import softeng.cinecritique.app.domain.dto.request.UserDTORequest;
+import softeng.cinecritique.app.domain.dto.response.UserDTOResponse;
+import softeng.cinecritique.app.domain.entity.UserEntity;
 import softeng.cinecritique.app.ports.output.UserRepository;
 
 import java.util.List;

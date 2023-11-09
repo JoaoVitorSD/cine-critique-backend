@@ -1,8 +1,8 @@
-package softeng.cinecritique.app.dto.response;
+package softeng.cinecritique.app.domain.dto.response;
 
 import lombok.Getter;
 import lombok.Setter;
-import softeng.cinecritique.app.entity.UserEntity;
+import softeng.cinecritique.app.domain.entity.UserEntity;
 
 import java.util.UUID;
 

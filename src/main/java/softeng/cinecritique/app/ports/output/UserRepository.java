@@ -2,8 +2,7 @@ package softeng.cinecritique.app.ports.output;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import softeng.cinecritique.app.domain.User;
-import softeng.cinecritique.app.entity.UserEntity;
+import softeng.cinecritique.app.domain.entity.UserEntity;
 
 import java.util.List;
 import java.util.UUID;

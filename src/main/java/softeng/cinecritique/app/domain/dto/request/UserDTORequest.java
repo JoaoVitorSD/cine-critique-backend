@@ -1,4 +1,4 @@
-package softeng.cinecritique.app.dto.request;
+package softeng.cinecritique.app.domain.dto.request;
 
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;

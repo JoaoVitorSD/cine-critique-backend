@@ -3,9 +3,8 @@ package softeng.cinecritique.app.ports.input;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 import softeng.cinecritique.app.domain.User;
-import softeng.cinecritique.app.dto.request.UserDTORequest;
-import softeng.cinecritique.app.dto.response.UserDTOResponse;
-import softeng.cinecritique.app.entity.UserEntity;
+import softeng.cinecritique.app.domain.dto.request.UserDTORequest;
+import softeng.cinecritique.app.domain.dto.response.UserDTOResponse;
 
 import java.util.List;
 import java.util.UUID;
