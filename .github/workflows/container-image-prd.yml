@@ -1,4 +1,4 @@
-name: API Gestão Projetos Build
+name: API Cine Critique V1
 
 on:
   push:
