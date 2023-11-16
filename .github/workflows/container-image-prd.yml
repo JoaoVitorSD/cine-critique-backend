@@ -33,4 +33,4 @@ jobs:
         run: docker build . --file Dockerfile --tag joaovitorsd/cine-critique-prd-v1:latest
 
       - name: Docker Push
-        run: docker push joaovitorsd/cine-critique-prd-v1:tagname:latest
+        run: docker push joaovitorsd/cine-critique-prd-v1:latest
