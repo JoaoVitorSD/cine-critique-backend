@@ -21,6 +21,7 @@ public class Movie {
 
     List<Genre> genres;
 
+    List<MovieRate> rates;
 
     public void update(Movie movie) {
         this.name = movie.getName();

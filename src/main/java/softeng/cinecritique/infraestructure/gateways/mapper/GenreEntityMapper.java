@@ -1,4 +1,4 @@
-package softeng.cinecritique.infraestructure.mapper;
+package softeng.cinecritique.infraestructure.gateways.mapper;
 
 import org.springframework.data.domain.Page;
 import softeng.cinecritique.app.domain.Genre;
@@ -25,7 +25,7 @@ public class GenreEntityMapper {
         if(entity.getMovies() == null)
             return new Genre(entity.getId(), entity.getName(), entity.getCreation_date(), null);
 
-        List<Movie> movies = entity.getMovies().stream().map(MovieEntityMapper::toModelWithoutGenre).collect(Collectors.toList());
+        List<Movie> movies = entity.getMovies().stream().map(MovieEntityMapper::toModelWithoutGenreAndRate).collect(Collectors.toList());
         return new Genre(entity.getId(), entity.getName(), entity.getCreation_date(), movies);
     }
 }

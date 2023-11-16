@@ -1,13 +1,11 @@
 package softeng.cinecritique.infraestructure.gateways;
 
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import softeng.cinecritique.app.domain.Genre;
 import softeng.cinecritique.app.domain.PageModel;
 import softeng.cinecritique.app.gateway.GenreGateway;
 import softeng.cinecritique.infraestructure.entity.GenreEntity;
-import softeng.cinecritique.app.domain.exception.ApiException;
-import softeng.cinecritique.infraestructure.mapper.GenreEntityMapper;
+import softeng.cinecritique.infraestructure.gateways.mapper.GenreEntityMapper;
 import softeng.cinecritique.infraestructure.persistence.GenreRepository;
 
 import java.util.Optional;

@@ -11,7 +11,7 @@ import softeng.cinecritique.infraestructure.controllers.request.GenreRequest;
 import softeng.cinecritique.infraestructure.controllers.response.GenreResponse;
 
 @RestController
-@RequestMapping("v1/genre")
+@RequestMapping("api/v1/genre")
 public class GenreController {
     private final GenreInteractor genreInteractor;
     private final GenreDTOMapper genreDTOMapper;

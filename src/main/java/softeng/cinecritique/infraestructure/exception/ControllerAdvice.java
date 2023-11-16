@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import softeng.cinecritique.app.domain.exception.ApiException;
+import softeng.cinecritique.app.domain.exception.ElementNotFoundException;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -38,4 +39,11 @@ public class ControllerAdvice {
     public ApiError handleApiException(ApiException ex) {
         return new ApiError(ex.getMessage());
     }
+
+    @ExceptionHandler(ElementNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ApiError handleApiException(ElementNotFoundException ex) {
+        return new ApiError(ex.getMessage());
+    }
+
 }

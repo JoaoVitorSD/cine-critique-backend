@@ -1,18 +1,17 @@
 package softeng.cinecritique.infraestructure.controllers;
 
 import jakarta.validation.Valid;
-import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import softeng.cinecritique.app.domain.PageModel;
-import softeng.cinecritique.app.usecases.UserInteractor;
 import softeng.cinecritique.app.domain.User;
+import softeng.cinecritique.app.usecases.UserInteractor;
 import softeng.cinecritique.infraestructure.controllers.mapper.UserDTOMapper;
 import softeng.cinecritique.infraestructure.controllers.request.UserRequest;
 import softeng.cinecritique.infraestructure.controllers.response.UserResponse;
 
 @RestController
-@RequestMapping("v1/user")
+@RequestMapping("api/v1")
 public class UserController {
     private final UserInteractor userInteractor;
     private final UserDTOMapper userDTOMapper;
@@ -22,7 +21,7 @@ public class UserController {
         this.userDTOMapper = userDTOMapper;
     }
 
-    @PostMapping
+    @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
     public UserResponse createUser(@RequestBody @Valid UserRequest request){
         User user = userDTOMapper.toUser(request);
@@ -35,7 +34,7 @@ public class UserController {
         return userDTOMapper.toResponse(userInteractor.updateUser(user));
     }
 
-    @GetMapping
+    @GetMapping("/user")
     public PageModel<UserResponse> listUsers(@RequestParam(defaultValue = "0") Integer page,
                                              @RequestParam(defaultValue = "10") Integer size, @RequestParam(defaultValue = "") String userName){
         return userInteractor.listUsers(page, size, userName).map(userDTOMapper::toResponse);

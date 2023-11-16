@@ -11,7 +11,7 @@ import softeng.cinecritique.infraestructure.controllers.request.MovieRequest;
 import softeng.cinecritique.infraestructure.controllers.response.MovieResponse;
 
 @RestController
-@RequestMapping("v1/movie")
+@RequestMapping("api/v1/movie")
 public class MovieController {
     private final MovieInteractor movieInteractor;
     private final MovieDTOMapper genreDTOMapper;

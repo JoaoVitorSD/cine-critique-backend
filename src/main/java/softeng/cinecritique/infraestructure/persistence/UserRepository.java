@@ -6,17 +6,19 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import softeng.cinecritique.infraestructure.entity.UserEntity;
 
+import java.util.Optional;
 import java.util.UUID;
 
 public interface UserRepository extends JpaRepository<UserEntity, UUID> {
 
 
-    boolean existsByUserName(String userName);
+    boolean existsByUsername(String userName);
 
+    Optional<UserEntity> findByUsername(String userName);
 
-    @Query("SELECT COUNT(u) > 0 FROM UserEntity u WHERE LOWER(u.userName) = LOWER(?1) AND (u.id <> ?2 or ?2 is null)")
+    @Query("SELECT COUNT(u) > 0 FROM UserEntity u WHERE LOWER(u.username) = LOWER(?1) AND (u.id <> ?2 or ?2 is null)")
     boolean existsByIgnoreCaseUserNameAndIdNot(String userName, UUID id);
 
 
-    Page<UserEntity> findAllByUserNameContainingIgnoreCase(String name, Pageable pageable);
+    Page<UserEntity> findAllByUsernameContainingIgnoreCase(String name, Pageable pageable);
 }

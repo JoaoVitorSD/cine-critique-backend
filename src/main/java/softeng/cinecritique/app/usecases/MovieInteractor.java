@@ -49,8 +49,6 @@ public class MovieInteractor {
         return movieGateway.getMovies(page, size, name, genre);
     }
 
-    public void rateMovie(Movie movie, Integer rating) {
-        movieGateway.rateMovie(movie, rating);
-    }
+
 
 }

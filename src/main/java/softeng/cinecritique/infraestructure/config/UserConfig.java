@@ -6,7 +6,7 @@ import softeng.cinecritique.app.gateway.UserGateway;
 import softeng.cinecritique.app.usecases.UserInteractor;
 import softeng.cinecritique.infraestructure.controllers.mapper.UserDTOMapper;
 import softeng.cinecritique.infraestructure.gateways.UserRepositoryGateway;
-import softeng.cinecritique.infraestructure.mapper.UserEntityMapper;
+import softeng.cinecritique.infraestructure.gateways.mapper.UserEntityMapper;
 import softeng.cinecritique.infraestructure.persistence.UserRepository;
 
 @Configuration
@@ -17,12 +17,8 @@ public class UserConfig {
     }
 
     @Bean
-    UserGateway userGateway(UserRepository userRepository, UserEntityMapper userEntityMapper){
-        return new UserRepositoryGateway(userRepository, userEntityMapper);
-    }
-    @Bean
-    UserEntityMapper userEntityMapper(){
-        return new UserEntityMapper();
+    UserGateway userGateway(UserRepository userRepository){
+        return new UserRepositoryGateway(userRepository);
     }
 
     @Bean

@@ -15,7 +15,6 @@ public interface MovieGateway {
 
     PageModel<Movie> getMovies(Integer page, Integer size, String name, String genre);
 
-    void rateMovie(Movie movie, Integer rating);
 
     Optional<Movie> findById(UUID id);
 }

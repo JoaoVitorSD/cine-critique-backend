@@ -17,5 +17,8 @@ public interface UserGateway {
 
 
 
-    boolean existsByIgnoreCaseUserNameAndIdNot(String userName, UUID id);
+    boolean existsByIgnoreCaseUserNameAndIdNot(String username, UUID id);
+
+    String encodePassword(String password);
+
 }

@@ -31,6 +31,10 @@ public class GenreEntity {
 
     private LocalDate creation_date;
 
-    @ManyToMany
-    private Set<MovieEntity> movies = new HashSet<>();
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name="movie_genre",
+            joinColumns = @JoinColumn(name = "genre_id", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "movie_id", nullable = false)
+    )
+    private List<MovieEntity> movies;
 }

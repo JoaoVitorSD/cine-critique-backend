@@ -8,14 +8,16 @@ public class User {
 
     private UUID id;
     private String name;
-    private String userName;
+    private String username;
+
+    private String password;
     private Integer age;
     private String email;
 
-    public User(UUID id, String name, String userName, Integer age, String email) {
+    public User(UUID id, String name, String username, Integer age, String email) {
         this.id = id;
         this.name = name;
-        this.userName = userName;
+        this.username = username;
         this.age = age;
         this.email = email;
     }
@@ -36,12 +38,12 @@ public class User {
         this.name = name;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public Integer getAge() {
@@ -58,5 +60,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
