@@ -11,8 +11,11 @@ public class GenreDTOMapper {
         return new Genre(request.id(), request.name(), null, null);
     }
 
-    public GenreMovieResponse toGenreMovieResponse(Movie genre){
-        return new GenreMovieResponse(genre.getId(), genre.getName(), genre.getDescription(), genre.getCreatedAt());
+    public GenreMovieResponse toGenreMovieResponse(Movie movie){
+        int size = !movie.getRates().isEmpty() ? movie.getRates().size():1;
+        Float rateAvg = movie.getRates().stream().reduce(0f, (acc, rate) -> acc + rate.getRate(), Float::sum) / size ;
+
+        return new GenreMovieResponse(movie.getId(), movie.getName(), movie.getDescription(), movie.getCreatedAt(),rateAvg);
     }
 
     public GenreResponse toResponse(Genre genre){
