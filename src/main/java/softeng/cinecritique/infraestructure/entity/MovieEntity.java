@@ -6,8 +6,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.Fetch;
+
+import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.List;
 import java.sql.Date;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -26,9 +31,9 @@ public class MovieEntity {
     private String name;
     private String description;
 
-    private Date filmedAt;
-    private Date createdAt;
+    private LocalDate filmedAt;
+    private LocalDate createdAt;
 
-    @ManyToMany
-    private List<GenreEntity> genres;
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Set<GenreEntity> genres = new HashSet<>();
 }

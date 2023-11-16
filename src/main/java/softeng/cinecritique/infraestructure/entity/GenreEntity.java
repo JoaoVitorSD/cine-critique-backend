@@ -9,7 +9,9 @@ import org.hibernate.annotations.ColumnDefault;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -30,5 +32,5 @@ public class GenreEntity {
     private LocalDate creation_date;
 
     @ManyToMany
-    private List<MovieEntity> movies;
+    private Set<MovieEntity> movies = new HashSet<>();
 }

@@ -4,8 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import java.time.LocalDate;
 import java.util.List;
-import java.sql.Date;
 import java.util.UUID;
 
 @Getter
@@ -16,8 +16,16 @@ public class Movie {
     UUID id;
     String name;
     String description;
-    Date filmedAt;
-    Date createdAt;
+    LocalDate filmedAt;
+    LocalDate createdAt;
 
     List<Genre> genres;
+
+
+    public void update(Movie movie) {
+        this.name = movie.getName();
+        this.description = movie.getDescription();
+        this.filmedAt = movie.getFilmedAt();
+        this.genres = movie.getGenres();
+    }
 }

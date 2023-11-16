@@ -23,6 +23,10 @@ public class Genre {
 
     List<Movie> movies;
 
+    public Genre(UUID id) {
+        this.id = id;
+    }
+
     public void update(Genre genre){
         this.name = genre.name;
     }
