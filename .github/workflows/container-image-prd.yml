@@ -30,7 +30,7 @@ jobs:
         run: mvn clean install
 
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag joaovitorsd/cine-critique-prd-v1:tagname:latest
+        run: docker build . --file Dockerfile --tag joaovitorsd/cine-critique-prd-v1:latest
 
       - name: Docker Push
         run: docker push joaovitorsd/cine-critique-prd-v1:tagname:latest
