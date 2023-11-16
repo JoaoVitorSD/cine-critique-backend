@@ -1,5 +1,6 @@
 package softeng.cinecritique.infraestructure.controllers;
 
+import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -23,13 +24,13 @@ public class GenreController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public GenreResponse createGenre(@RequestBody GenreRequest request){
+    public GenreResponse createGenre(@RequestBody @Valid GenreRequest request){
         Genre genre = genreDTOMapper.toModel(request);
         return genreDTOMapper.toResponse(genreInteractor.createGenre(genre));
     }
 
     @PutMapping
-    public GenreResponse updateGenre(@RequestBody GenreRequest request){
+    public GenreResponse updateGenre(@RequestBody @Valid GenreRequest request){
         Genre genre = genreDTOMapper.toModel(request);
         return genreDTOMapper.toResponse(genreInteractor.updateGenre(genre));
     }
