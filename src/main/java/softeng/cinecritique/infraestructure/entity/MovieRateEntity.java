@@ -1,12 +1,11 @@
 package softeng.cinecritique.infraestructure.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.NotFound;
 
 import java.util.UUID;
@@ -16,9 +15,12 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "movie_rate")
 public class MovieRateEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @ColumnDefault("random_uuid()")
     private UUID id;
 
     @ManyToOne

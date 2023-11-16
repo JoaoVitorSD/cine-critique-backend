@@ -13,7 +13,7 @@ public interface MovieRateGateway {
 
     MovieRate updateRate(MovieRate rate);
 
-    List<MovieRate> getRates(UUID movieId, String username);
+    List<MovieRate> getRates(UUID move, UUID user);
 
 
     Optional<MovieRate> findById(UUID id);

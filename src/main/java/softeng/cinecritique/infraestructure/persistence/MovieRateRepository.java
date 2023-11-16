@@ -9,6 +9,6 @@ import java.util.UUID;
 public interface MovieRateRepository extends JpaRepository<MovieRateEntity, UUID> {
 
 
-    @Query("select m from MovieRateEntity m where m.movie.id = ?1 and m.user.username = ?2")
-    List<MovieRateEntity> findByMovieAndUserName(UUID movieId, String username);
+    @Query("select m from MovieRateEntity m where m.movie.id = ?1 and m.user.id = ?2")
+    List<MovieRateEntity> findByMovieAndUserName(UUID movie, UUID user);
 }

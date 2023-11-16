@@ -12,6 +12,9 @@ public class MovieDTOMapper {
 
 
     public MovieResponse toResponse(Movie movie){
-        return new MovieResponse(movie.getId(), movie.getName(), movie.getDescription(), movie.getCreatedAt(), movie.getGenres().stream().map(Genre::getName).toList());
+
+        int size = !movie.getRates().isEmpty() ? movie.getRates().size():1;
+        Float rateAvg = movie.getRates().stream().reduce(0f, (acc, rate) -> acc + rate.getRate(), Float::sum) / size ;
+        return new MovieResponse(movie.getId(), movie.getName(), movie.getDescription(), movie.getCreatedAt(), movie.getGenres().stream().map(Genre::getName).toList(), rateAvg);
     }
 }

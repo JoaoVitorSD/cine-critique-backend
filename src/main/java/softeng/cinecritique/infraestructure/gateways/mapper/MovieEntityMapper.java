@@ -23,7 +23,7 @@ public class MovieEntityMapper {
 
     public static Movie toModel(MovieEntity entity){
         return new Movie(entity.getId(), entity.getName(),entity.getDescription(), entity.getCreatedAt(),entity.getFilmedAt(),
-                entity.getGenres().stream().map(GenreEntityMapper::toModel).collect(Collectors.toList()), entity.getRates().stream().map(MovieRateEntityMapper::toModel).toList());
+                entity.getGenres().stream().map(GenreEntityMapper::toModel).collect(Collectors.toList()), entity.getRates().stream().map(MovieRateEntityMapper::toModelWithoutMovie).toList());
     }
     public static  Movie toModelWithoutGenreAndRate(MovieEntity entity){
         return new Movie(entity.getId(), entity.getName(),entity.getDescription(), entity.getCreatedAt(),entity.getFilmedAt(), null, null);

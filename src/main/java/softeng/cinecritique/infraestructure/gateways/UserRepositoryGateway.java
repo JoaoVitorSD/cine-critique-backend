@@ -8,6 +8,7 @@ import softeng.cinecritique.app.domain.User;
 import softeng.cinecritique.infraestructure.gateways.mapper.UserEntityMapper;
 import softeng.cinecritique.infraestructure.persistence.UserRepository;
 
+import java.util.Optional;
 import java.util.UUID;
 
 public class UserRepositoryGateway implements UserGateway {
@@ -33,6 +34,11 @@ public class UserRepositoryGateway implements UserGateway {
     @Override
     public PageModel<User> listUsers(Integer page, Integer size, String name) {
         return UserEntityMapper.toPageModel(userRepository.findAllByUsernameContainingIgnoreCase(name, PageRequest.of(page, size)));
+    }
+
+    @Override
+    public Optional<User> findById(UUID id) {
+        return userRepository.findById(id).map(UserEntityMapper::toModel);
     }
 
     @Override

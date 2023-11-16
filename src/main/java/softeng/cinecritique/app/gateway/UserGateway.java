@@ -4,6 +4,7 @@ import org.springframework.data.domain.Page;
 import softeng.cinecritique.app.domain.PageModel;
 import softeng.cinecritique.app.domain.User;
 
+import java.util.Optional;
 import java.util.UUID;
 
 public interface UserGateway {
@@ -16,6 +17,7 @@ public interface UserGateway {
     PageModel<User> listUsers(Integer page, Integer size, String name);
 
 
+    Optional<User> findById(UUID id);
 
     boolean existsByIgnoreCaseUserNameAndIdNot(String username, UUID id);
 

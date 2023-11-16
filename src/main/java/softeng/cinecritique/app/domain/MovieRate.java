@@ -11,6 +11,9 @@ public class MovieRate {
 
     User user;
 
+    public MovieRate() {
+    }
+
     public void update(MovieRate update){
         this.rate = update.rate;
     }

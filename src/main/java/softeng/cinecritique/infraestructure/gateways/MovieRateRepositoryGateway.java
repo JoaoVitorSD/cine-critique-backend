@@ -14,11 +14,9 @@ import java.util.UUID;
 public class MovieRateRepositoryGateway implements MovieRateGateway {
     private final MovieRateRepository movieRateRepository;
 
-    private final MovieRateEntityMapper movieRateEntityMapper;
 
-    public MovieRateRepositoryGateway(MovieRateRepository movieRateRepository, MovieRateEntityMapper movieRateEntityMapper) {
+    public MovieRateRepositoryGateway(MovieRateRepository movieRateRepository) {
         this.movieRateRepository = movieRateRepository;
-        this.movieRateEntityMapper = movieRateEntityMapper;
     }
 
 
@@ -35,8 +33,8 @@ public class MovieRateRepositoryGateway implements MovieRateGateway {
     }
 
     @Override
-    public List<MovieRate> getRates(UUID movieId, String username) {
-        return movieRateRepository.findByMovieAndUserName(movieId, username).stream().map(MovieRateEntityMapper::toModel).toList();
+    public List<MovieRate> getRates(UUID movieId, UUID user) {
+        return movieRateRepository.findByMovieAndUserName(movieId, user).stream().map(MovieRateEntityMapper::toModel).toList();
     }
 
 

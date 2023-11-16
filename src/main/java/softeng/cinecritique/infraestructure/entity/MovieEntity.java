@@ -43,5 +43,9 @@ public class MovieEntity {
 
 
     @OneToMany(fetch = FetchType.EAGER)
+    @JoinTable(name="movie_rate",
+            joinColumns = @JoinColumn(name = "movie_id", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "id", nullable = false)
+    )
     private List<MovieRateEntity> rates;
 }
