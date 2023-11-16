@@ -6,7 +6,7 @@ import softeng.cinecritique.infraestructure.entity.MovieRateEntity;
 public class MovieRateEntityMapper {
 
     public static MovieRate toModel(MovieRateEntity movieRate){
-        return  new MovieRate(movieRate.getId(), MovieEntityMapper.toModel(movieRate.getMovie()),movieRate.getRate(), UserEntityMapper.toModel(movieRate.getUser()));
+        return  new MovieRate(movieRate.getId(), MovieEntityMapper.toModelWithoutRates(movieRate.getMovie()),movieRate.getRate(), UserEntityMapper.toModel(movieRate.getUser()));
     }
 
     public static MovieRate toModelWithoutMovie(MovieRateEntity movieRate){
@@ -14,6 +14,6 @@ public class MovieRateEntityMapper {
     }
 
     public static MovieRateEntity toEntity(MovieRate movieRate){
-        return  new MovieRateEntity(movieRate.getId(), MovieEntityMapper.toEntity(movieRate.getMovie()),movieRate.getRate(), UserEntityMapper.toEntity(movieRate.getUser()));
+        return  new MovieRateEntity(movieRate.getId(), MovieEntityMapper.toEntityWithoutRates(movieRate.getMovie()),movieRate.getRate(), UserEntityMapper.toEntity(movieRate.getUser()));
     }
 }

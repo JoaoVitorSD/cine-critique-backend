@@ -3,6 +3,7 @@ package softeng.cinecritique.infraestructure.controllers;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import softeng.cinecritique.app.domain.exception.ElementNotFoundException;
 import softeng.cinecritique.app.domain.input.MovieRateInput;
 import softeng.cinecritique.app.usecases.MovieRateInteractor;
 import softeng.cinecritique.infraestructure.controllers.mapper.MovieRateDTOMapper;
@@ -24,13 +25,13 @@ public class MovieRateController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public MovieRateResponse createMovie(@RequestBody @Valid MovieRateRequest request) {
+    public MovieRateResponse createMovie(@RequestBody @Valid MovieRateRequest request) throws ElementNotFoundException {
         MovieRateInput rate = movieRateDTOMapper.toMovieRateInput(request);
         return movieRateDTOMapper.toResponse(movieRateInteractor.rateMovie(rate));
     }
 
     @PutMapping
-    public MovieRateResponse updateMovie(@RequestBody @Valid MovieRateRequest request) {
+    public MovieRateResponse updateMovie(@RequestBody @Valid MovieRateRequest request) throws ElementNotFoundException {
         MovieRateInput rate = movieRateDTOMapper.toMovieRateInput(request);
         return movieRateDTOMapper.toResponse(movieRateInteractor.updateRate(rate));
     }

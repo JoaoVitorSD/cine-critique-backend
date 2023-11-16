@@ -45,6 +45,7 @@ public class MovieRateInteractor {
         movieRate.setUser(userGateway
                 .findById(input.user())
                 .orElseThrow(()-> new ElementNotFoundException("User not found")));
+        System.out.println("Aqui passou " +  movieRate.getMovie().getName());
         return movieRate;
     }
 
