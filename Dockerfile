@@ -1,11 +1,8 @@
-FROM openjdk:17-jdk-bullseye
+FROM openjdk:17-jdk
 
-COPY . /usr/app
+COPY ./target/api-cine-critique.jar /opt/app/app.jar
 
-WORKDIR /usr/app
+WORKDIR /opt/app
 
-RUN apt-get update && apt-get install -y maven
 
-RUN mvn clean install
-
-entrypoint ["java", "-jar", "target/*.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
