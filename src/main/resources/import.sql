@@ -1,0 +1,13 @@
+-- Import.sql
+
+-- Inserting GenreEntity data
+-- INSERT INTO genre ( name, creation_date) VALUES ( 'Action', '2023-11-11');
+-- INSERT INTO genre ( name, creation_date) VALUES ( 'Drama', '2023-11-10');
+-- INSERT INTO genre ( name, creation_date) VALUES ( 'Comedy', '2023-11-09');
+--
+-- -- Inserting MovieEntity data
+-- INSERT INTO movie (name, release_date, genre_id) VALUES ( 'Inception', '2010-07-16', (SELECT id FROM genre WHERE name = 'Action'));
+-- INSERT INTO movie (name, release_date, genre_id) VALUES  ( 'The Shawshank Redemption', '1994-09-23', (SELECT id FROM genre WHERE name = 'Drama'));
+-- INSERT INTO movie (name, release_date, genre_id) VALUES  ( 'Pulp Fiction', '1994-10-14', (SELECT id FROM genre WHERE name = 'Drama'));
+-- INSERT INTO movie (name, release_date, genre_id) VALUES  ( 'The Dark Knight', '2008-07-18', (SELECT id FROM genre WHERE name = 'Action'));
+-- INSERT INTO movie (name, release_date, genre_id) VALUES  ( 'Forrest Gump', '1994-07-06', (SELECT id FROM genre WHERE name = 'Drama'));
