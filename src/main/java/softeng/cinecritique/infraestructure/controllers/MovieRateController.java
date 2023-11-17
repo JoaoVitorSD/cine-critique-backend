@@ -43,13 +43,11 @@ public class MovieRateController {
 
     @GetMapping
     @Operation(summary ="Listing")
-    public List<MovieRateResponse> listMovies(@RequestParam(defaultValue = "0") Integer page,
-                                               @RequestParam(defaultValue = "10") Integer size,
-                                               @RequestParam(required = false) UUID movie,
+    public List<MovieRateResponse> listMovies(@RequestParam(required = false) UUID movie,
                                                @RequestParam(required = false) UUID user
 
     ) {
-        return movieRateInteractor.getRates(page, size, movie, user).stream()
+        return movieRateInteractor.getRates(movie, user).stream()
                 .map(movieRateDTOMapper::toResponse).toList();
     }
 }

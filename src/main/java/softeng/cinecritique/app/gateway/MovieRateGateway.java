@@ -17,4 +17,6 @@ public interface MovieRateGateway {
 
 
     Optional<MovieRate> findById(UUID id);
+
+    Optional<MovieRate> findByMovieAndUser(UUID movie, UUID user);
 }

@@ -33,7 +33,7 @@ public class MovieRateInteractor {
         this.movieRateGateway = movieRateGateway;
     }
 
-    private MovieRate toModel(MovieRateInput input)throws ElementNotFoundException{
+    private MovieRate toModel(MovieRateInput input){
         MovieRate movieRate = new MovieRate();
         movieRate.setId(input.id());
         movieRate.setRate(input.rate());
@@ -50,17 +50,13 @@ public class MovieRateInteractor {
     }
 
 
-    public MovieRate rateMovie(MovieRateInput movieRate) throws ElementNotFoundException {
-        if(movieRate.rate()<=0){
-            throw new ApiException("Rate must be greater or equal than 0");
-        }
-          if(movieRate.rate()>10){
-                throw new ApiException("Rate must be less or equal than 10");
-          }
-        return movieRateGateway.rateMovie(toModel(movieRate));
+    public MovieRate rateMovie(MovieRateInput input)  {
+        MovieRate rate = toModel(input);
+        validateRate(rate);
+        return movieRateGateway.rateMovie(rate);
     }
 
-    public MovieRate updateRate(MovieRateInput rateUpdated) throws ElementNotFoundException{
+    public MovieRate updateRate(MovieRateInput rateUpdated) {
         Optional<MovieRate> oldMovieOpt = movieRateGateway.findById(rateUpdated.id());
         if(oldMovieOpt.isEmpty()){
             throw new ElementNotFoundException("Movie not found");
@@ -70,9 +66,31 @@ public class MovieRateInteractor {
         return movieRateGateway.updateRate(rate);
     }
 
-    public List<MovieRate> getRates(Integer page, Integer size, UUID movie, UUID user) {
+    private void validateRate(MovieRate rate){
+        if(rate.getRate()== null){
+            throw new ApiException("Rate cannot be null");
+        }
+        if(rate.getRate()<=0){
+            throw new ApiException("Rate must be greater or equal than 0");
+        }
+        if(rate.getRate()>10){
+                throw new ApiException("Rate must be less or equal than 10");
+        }
+        if(rate.getMovie()==null){
+            throw new ApiException("Movie cannot be null");
+        }
+        if(rate.getUser()==null){
+            throw new ApiException("User cannot be null");
+        }
+        if(movieRateGateway.findByMovieAndUser(rate.getMovie().getId(), rate.getUser().getId()).isPresent()){
+            throw new ApiException("User already rated this movie");
+        }
+    }
+    public List<MovieRate> getRates(UUID movie, UUID user) {
         return movieRateGateway.getRates( movie, user);
     }
+
+
 
 
 

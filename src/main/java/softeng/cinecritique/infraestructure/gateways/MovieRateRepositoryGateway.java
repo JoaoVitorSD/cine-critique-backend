@@ -34,12 +34,17 @@ public class MovieRateRepositoryGateway implements MovieRateGateway {
 
     @Override
     public List<MovieRate> getRates(UUID movieId, UUID user) {
-        return movieRateRepository.findByMovieAndUserName(movieId, user).stream().map(MovieRateEntityMapper::toModel).toList();
+        return movieRateRepository.findByMovieAndUserNulls(movieId, user).stream().map(MovieRateEntityMapper::toModel).toList();
     }
 
 
     @Override
     public Optional<MovieRate> findById(UUID id) {
         return Optional.empty();
+    }
+
+    @Override
+    public Optional<MovieRate> findByMovieAndUser(UUID movie, UUID user) {
+        return movieRateRepository.findByMovieAndUser(movie, user).map(MovieRateEntityMapper::toModel);
     }
 }
