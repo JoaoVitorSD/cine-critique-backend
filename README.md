@@ -7,6 +7,18 @@
 - Cadastro, Atualização e Lstagem de Gêneros
 - Cadastro, Atualização e Lstagem de Avaliações
 
+## Stack
+A aplicação foi desenvolvida utilizando as seguintes tecnologias/Dependências:
+- Java 17
+- Spring Boot
+- Spring Data JPA
+- Spring Web
+- H2 Database
+- Swagger
+- Lombok
+- JUnit
+- Validation
+
 ## Arquitetura
 
 Esta aplicação segue os princípios da clean arq. Isolando
