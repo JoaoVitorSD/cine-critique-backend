@@ -13,8 +13,8 @@ public class UserInteractor {
     }
 
     public User createUser(User user){
-        if(userGateway.existsByIgnoreCaseUserNameAndIdNot(user.getUsername(), user.getId()))
-            throw new ApiException("Username in use");
+        if(userGateway.existsByEmail(user.getEmail(), user.getId()))
+            throw new ApiException("Email in use");
 
         user.setPassword(userGateway.encodePassword(user.getPassword()));
         return userGateway.createUser(user);
@@ -22,8 +22,8 @@ public class UserInteractor {
     public User updateUser(User user){
         if(user.getId() == null)
             throw new ApiException("User id is required for update");
-        if(userGateway.existsByIgnoreCaseUserNameAndIdNot(user.getUsername(), user.getId()))
-            throw new ApiException("Username in use");
+        if(userGateway.existsByEmail(user.getEmail(), user.getId()))
+            throw new ApiException("Email in use");
 
         return userGateway.updateUser(user);
     }

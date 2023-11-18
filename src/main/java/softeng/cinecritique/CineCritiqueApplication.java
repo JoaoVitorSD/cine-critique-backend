@@ -10,7 +10,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @OpenAPIDefinition(info = @Info(title = "Cine Critique Rest Api",
 		description = "Movies rating and classification by genre",
 		version = "1.0.0", contact = @Contact(name = "Grupo 11", email = "joaovitorsantanadepollo@gmail.com")))
-
 public class CineCritiqueApplication {
 
 	public static void main(String[] args) {

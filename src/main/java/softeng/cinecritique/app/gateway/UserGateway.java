@@ -1,6 +1,5 @@
 package softeng.cinecritique.app.gateway;
 
-import org.springframework.data.domain.Page;
 import softeng.cinecritique.app.domain.PageModel;
 import softeng.cinecritique.app.domain.User;
 
@@ -19,7 +18,7 @@ public interface UserGateway {
 
     Optional<User> findById(UUID id);
 
-    boolean existsByIgnoreCaseUserNameAndIdNot(String username, UUID id);
+    boolean existsByEmail(String email, UUID id);
 
     String encodePassword(String password);
 

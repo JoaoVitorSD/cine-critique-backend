@@ -14,11 +14,16 @@ as regras de negócio da camada de infraestrutura.
 
 ### Estrutura de pastas
 
-- app: Contém as regras de negócio da aplicação
+- **app**: Contém as regras de negócio da aplicação
   - model: Contem as entidades da aplicação
   - usecases: Contém os casos de uso da aplicação, implementando as regras de negócio e manipulam as entidades
   - gateways: Contém as interfaces que devem ser implementadas pela camada de infraestrutura, para comunicação dos interactors
-
+- **infrastructure**:
+  - config: responsável por injetar as dependências e realizar as confiruações necessárias do framework
+  - controllers: Contém os controllers da aplicação, que recebem as requisições e chamam os interactors/usescases
+  - entity: Contém as entidades da infraestrutura, que são utilizadas para comunicação com o banco de dados
+  - persistence: mapeiam as entidades da infraestrutura para o banco de dados
+  - repositories: Contém as implementações dos gateways, que realizam a comunicação com o banco de dados
 
 ## Execução
 Para executar a aplicação, existem 2 possbilidades:

@@ -13,12 +13,11 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import softeng.cinecritique.app.domain.MovieRate;
-import softeng.cinecritique.infraestructure.controllers.request.MovieRateRequest;
-import softeng.cinecritique.infraestructure.controllers.response.MovieRateResponse;
-import softeng.cinecritique.infraestructure.entity.UserEntity;
-import softeng.cinecritique.infraestructure.persistence.MovieRepository;
-import softeng.cinecritique.infraestructure.persistence.UserRepository;
+import softeng.cinecritique.infrastructure.controllers.request.MovieRateRequest;
+import softeng.cinecritique.infrastructure.controllers.response.MovieRateResponse;
+import softeng.cinecritique.infrastructure.entity.UserEntity;
+import softeng.cinecritique.infrastructure.persistence.MovieRepository;
+import softeng.cinecritique.infrastructure.persistence.UserRepository;
 
 import java.util.List;
 import java.util.UUID;
@@ -181,7 +180,9 @@ class MovieRateTests {
                 .andExpect(status().isCreated());
 
 
-        List<MovieRateResponse> rates = objectMapper.readValue(mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/movie/rate").param("movie", movieRepository.findAll().get(0).getId().toString()))
+        List<MovieRateResponse> rates = objectMapper.readValue(mockMvc
+                        .perform(MockMvcRequestBuilders.get("/api/v1/movie/rate")
+                        .param("movie", movieRepository.findAll().get(0).getId().toString()))
                 .andExpect(status().isOk()).andReturn().getResponse().getContentAsString(), new TypeReference<>() {
         });
 

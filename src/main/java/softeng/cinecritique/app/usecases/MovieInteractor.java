@@ -7,7 +7,6 @@ import softeng.cinecritique.app.domain.Movie;
 import softeng.cinecritique.app.domain.PageModel;
 import softeng.cinecritique.app.gateway.GenreGateway;
 import softeng.cinecritique.app.gateway.MovieGateway;
-import java.util.List;
 import java.time.LocalDate;
 import java.util.Optional;
 
