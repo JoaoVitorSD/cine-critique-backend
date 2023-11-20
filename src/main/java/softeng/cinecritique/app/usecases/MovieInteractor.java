@@ -21,7 +21,6 @@ public class MovieInteractor {
         this.gateway = gateway;
     }
 
-    @Transactional
     public Movie createMovie(Movie movie) {
         movie.setCreatedAt(LocalDate.now());
         movie.setGenres(movie.getGenres().stream().map(genre -> {
