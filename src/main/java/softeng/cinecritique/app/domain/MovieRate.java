@@ -3,13 +3,13 @@ package softeng.cinecritique.app.domain;
 import java.util.UUID;
 
 public class MovieRate {
-    UUID id;
+    private UUID id;
 
-    Movie movie;
+    private Movie movie;
 
-    Float rate;
+    private Float rate;
 
-    User user;
+    private User user;
 
     public MovieRate() {
     }

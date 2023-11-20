@@ -13,15 +13,15 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Movie {
-    UUID id;
-    String name;
-    String description;
-    LocalDate filmedAt;
-    LocalDate createdAt;
+    private UUID id;
+    private String name;
+    private String description;
+    private LocalDate filmedAt;
+    private LocalDate createdAt;
 
-    List<Genre> genres;
+    private List<Genre> genres;
 
-    List<MovieRate> rates;
+    private List<MovieRate> rates;
 
     public void update(Movie movie) {
         this.name = movie.getName();

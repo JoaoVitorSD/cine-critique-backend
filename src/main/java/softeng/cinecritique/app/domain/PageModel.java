@@ -8,12 +8,12 @@ import java.util.stream.Collectors;
 
 public class PageModel<T>{
 
-    List<T> content;
-    int totalPages;
-    Long totalElements;
-    int size;
+    private List<T> content;
+    private int totalPages;
+    private Long totalElements;
+    private int size;
 
-    int page;
+    private int page;
 
     public PageModel(List<T> content, int totalPages, Long totalElements, int size, int page) {
         this.content = content;

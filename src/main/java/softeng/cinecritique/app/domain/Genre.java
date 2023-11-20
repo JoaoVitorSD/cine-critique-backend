@@ -16,12 +16,12 @@ import java.util.UUID;
 @AllArgsConstructor
 public class Genre {
 
-    UUID id;
-    String name;
+    private UUID id;
+    private String name;
 
-    LocalDate createdAt;
+    private LocalDate createdAt;
 
-    List<Movie> movies;
+    private List<Movie> movies;
 
     public Genre(UUID id) {
         this.id = id;
