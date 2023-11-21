@@ -61,7 +61,7 @@ mvn test
 ### 2. Executar o container docker
 
 O docker é uma ferramenta de virtualização de aplicações, que permite a execução de aplicações em containers, que são ambientes isolados.
-Com o docker instalado na máquina, baixe a imagem do dockerhub:
+Com o docker instalado na máquina e logado no dockerhub, baixe a imagem do dockerhub:
 
 ```shell
 docker pull joaovitorsd/cine-critique-backend:latest
